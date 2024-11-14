@@ -30,6 +30,7 @@
         {
             this.flptable = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnin = new System.Windows.Forms.Button();
             this.cbbban = new System.Windows.Forms.ComboBox();
             this.btnthanhtoan = new System.Windows.Forms.Button();
             this.nugiamgia = new System.Windows.Forms.NumericUpDown();
@@ -44,17 +45,16 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pbmon = new System.Windows.Forms.PictureBox();
             this.btnthemmon = new System.Windows.Forms.Button();
             this.cbbmon = new System.Windows.Forms.ComboBox();
             this.cbbloai = new System.Windows.Forms.ComboBox();
             this.nudsoluong = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nugiamgia)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbmon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudsoluong)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +72,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnin);
             this.panel4.Controls.Add(this.cbbban);
             this.panel4.Controls.Add(this.btnthanhtoan);
             this.panel4.Controls.Add(this.nugiamgia);
@@ -81,6 +82,16 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(342, 64);
             this.panel4.TabIndex = 14;
+            // 
+            // btnin
+            // 
+            this.btnin.Location = new System.Drawing.Point(245, 32);
+            this.btnin.Name = "btnin";
+            this.btnin.Size = new System.Drawing.Size(85, 23);
+            this.btnin.TabIndex = 6;
+            this.btnin.Text = "In Hóa Đơn";
+            this.btnin.UseVisualStyleBackColor = true;
+            this.btnin.Click += new System.EventHandler(this.btnin_Click);
             // 
             // cbbban
             // 
@@ -94,7 +105,7 @@
             // 
             this.btnthanhtoan.Location = new System.Drawing.Point(243, 3);
             this.btnthanhtoan.Name = "btnthanhtoan";
-            this.btnthanhtoan.Size = new System.Drawing.Size(87, 49);
+            this.btnthanhtoan.Size = new System.Drawing.Size(87, 29);
             this.btnthanhtoan.TabIndex = 4;
             this.btnthanhtoan.Text = "Thanh Toán";
             this.btnthanhtoan.UseVisualStyleBackColor = true;
@@ -129,19 +140,20 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txttongtien);
             this.panel2.Controls.Add(this.lsvBill);
-            this.panel2.Location = new System.Drawing.Point(3, 179);
+            this.panel2.Location = new System.Drawing.Point(3, 69);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(342, 204);
+            this.panel2.Size = new System.Drawing.Size(342, 314);
             this.panel2.TabIndex = 15;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(131, 180);
+            this.label1.Location = new System.Drawing.Point(131, 238);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 18);
             this.label1.TabIndex = 2;
@@ -151,7 +163,7 @@
             // 
             this.txttongtien.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttongtien.ForeColor = System.Drawing.Color.Red;
-            this.txttongtien.Location = new System.Drawing.Point(220, 177);
+            this.txttongtien.Location = new System.Drawing.Point(230, 235);
             this.txttongtien.Name = "txttongtien";
             this.txttongtien.ReadOnly = true;
             this.txttongtien.Size = new System.Drawing.Size(100, 24);
@@ -167,9 +179,9 @@
             this.columnHeader3,
             this.columnHeader4});
             this.lsvBill.HideSelection = false;
-            this.lsvBill.Location = new System.Drawing.Point(8, 3);
+            this.lsvBill.Location = new System.Drawing.Point(8, 0);
             this.lsvBill.Name = "lsvBill";
-            this.lsvBill.Size = new System.Drawing.Size(322, 168);
+            this.lsvBill.Size = new System.Drawing.Size(334, 232);
             this.lsvBill.TabIndex = 0;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
             this.lsvBill.View = System.Windows.Forms.View.Details;
@@ -177,6 +189,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Tên Món";
+            this.columnHeader1.Width = 130;
             // 
             // columnHeader2
             // 
@@ -185,30 +198,23 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Đơn Giá";
+            this.columnHeader3.Width = 62;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Thành Tiền";
+            this.columnHeader4.Width = 74;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.pbmon);
             this.panel3.Controls.Add(this.btnthemmon);
             this.panel3.Controls.Add(this.cbbmon);
             this.panel3.Controls.Add(this.cbbloai);
             this.panel3.Controls.Add(this.nudsoluong);
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(342, 170);
+            this.panel3.Size = new System.Drawing.Size(342, 60);
             this.panel3.TabIndex = 16;
-            // 
-            // pbmon
-            // 
-            this.pbmon.Location = new System.Drawing.Point(8, 59);
-            this.pbmon.Name = "pbmon";
-            this.pbmon.Size = new System.Drawing.Size(322, 108);
-            this.pbmon.TabIndex = 4;
-            this.pbmon.TabStop = false;
             // 
             // btnthemmon
             // 
@@ -261,6 +267,16 @@
             this.panel1.Size = new System.Drawing.Size(348, 450);
             this.panel1.TabIndex = 9;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(264, 288);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Load Bàn";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Menu2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,7 +292,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbmon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudsoluong)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -294,7 +309,6 @@
         private System.Windows.Forms.Button btnchuyenban;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pbmon;
         private System.Windows.Forms.Button btnthemmon;
         private System.Windows.Forms.ComboBox cbbmon;
         private System.Windows.Forms.ComboBox cbbloai;
@@ -307,5 +321,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txttongtien;
+        private System.Windows.Forms.Button btnin;
+        private System.Windows.Forms.Button button1;
     }
 }

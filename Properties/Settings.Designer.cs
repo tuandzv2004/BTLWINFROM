@@ -22,5 +22,16 @@ namespace quanlynhahang.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-8M88ESB\\SQLEXPRESS;Initial Catalog=quanlynhahang;Integrated S" +
+            "ecurity=True;Encrypt=True;TrustServerCertificate=True")]
+        public string quanlynhahangConnectionString {
+            get {
+                return ((string)(this["quanlynhahangConnectionString"]));
+            }
+        }
     }
 }

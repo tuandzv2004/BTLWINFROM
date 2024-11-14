@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using quanlynhahang.Classes;
 
 
 namespace quanlynhahang
 {
     public partial class Form1 : Form
     {
+        public static int check = 0;
         string connectionString = "Server=DESKTOP-8M88ESB\\SQLEXPRESS;Database=quanlynhahang; Trusted_Connection=True;";
 
         public Form1()
@@ -37,11 +39,22 @@ namespace quanlynhahang
                 int count = db.login(username, password);
                 if (count == 1)
                 {
+                    Account loginac= AccountDAO.Instance.GetAccountbyusername(username);
                     //MessageBox.Show("Đăng nhập thành công!");
-                    Home home = new Home();
+                    Home home = new Home(loginac);
+                    Menu4.us=username;
                     this.Hide();
                     home.ShowDialog();
-                    this.Close();
+                    if (check == 1) {
+                        txtUser.Text = "";
+                        txtPass.Text = "";
+                        try
+                        {
+                            this.Show();
+                        }
+                        catch { }
+                    }
+                    else this.Close();
                 }
                 else
                 {

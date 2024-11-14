@@ -22,9 +22,9 @@ namespace quanlynhahang.Classes
         
         }
 
-        public void checkout(int id, int discount)
+        public void checkout(int id, int discount, float totalPrice)
         {
-            dtbase.changedata("update dbo.Bill set status = 1 , discount= "+discount+" where id = " + id);
+            dtbase.changedata("update dbo.Bill set dateCheckOut = GETDATE(), status = 1 , discount= "+discount+" , totalPrice = "+totalPrice+" where id = " + id);
         }
 
         public int GetUnchheckBillIDByTableID(int id) {
@@ -40,6 +40,11 @@ namespace quanlynhahang.Classes
          public void InsertBill(int id)
         {
             dtbase.changedata("exec USP_InsertBill "+ id);
+        }
+
+        public DataTable getlistbydate(DateTime checkin, DateTime checkout)
+        {
+            return dtbase.readdata("exec USP_getlistbydate '" + checkin + "','" + checkout+"'");
         }
 
         public int GetMaxID()

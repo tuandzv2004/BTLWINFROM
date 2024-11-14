@@ -1,4 +1,5 @@
-﻿using System;
+﻿using quanlynhahang.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,13 +17,27 @@ namespace quanlynhahang
         Menu3 mn3;
         Menu4 mn4;
         Menu5 mn5;
+        danhmuc dm;
+        Menu6 mn6;
+        Menu7 mn7;
 
+        private Account login;
 
+        public Account Login
+        {
+            get { return login; }
+            set { login = value; doiacc(login.Type); }
+        }
 
-
-        public Home()
+        public Home(Account login)
         {
             InitializeComponent();
+            this.Login = login;
+            pnbar.Height = 66;
+        }
+        void doiacc(int type)
+        {
+            button2.Enabled= type ==1;
         }
 
         private void thôngTinToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,8 +84,23 @@ namespace quanlynhahang
             }
         }
 
+        void resetcolor()
+        {
+            button1.ForeColor =Color.Black;
+            button2.ForeColor =Color.Black;
+            button3.ForeColor =Color.Black;
+            button4.ForeColor =Color.Black;
+            button5.ForeColor =Color.Black;
+            button6.ForeColor =Color.Black;
+            button7.ForeColor =Color.Black;
+            button8.ForeColor =Color.Black;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            resetcolor();
+            button1.ForeColor = Color.Blue;
+
             if (mn2 == null) {
                 mn2 = new Menu2();
                 mn2.FormClosed += Dashboard_FormCloased;
@@ -88,15 +118,10 @@ namespace quanlynhahang
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (mn3 == null)
-            {
-                mn3 = new Menu3();
-                mn3.FormClosed += Mn3_FormCloased;
-                mn3.MdiParent = this;
-                mn3.Dock = DockStyle.Fill;
-                mn3.Show();
-            }
-            else { mn3.Activate(); }
+            resetcolor();
+            button2.ForeColor = Color.Blue;
+
+            admin.Start();
         }
 
         private void Mn3_FormCloased(object sender, FormClosedEventArgs e)
@@ -106,6 +131,9 @@ namespace quanlynhahang
 
         private void button3_Click(object sender, EventArgs e)
         {
+            resetcolor();
+            button3.ForeColor = Color.Blue;
+
             if (mn4 == null)
             {
                 mn4 = new Menu4();
@@ -124,20 +152,122 @@ namespace quanlynhahang
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (mn5 == null)
+            resetcolor();
+            button4.ForeColor = Color.Blue;
+
+            if (mn6 == null)
             {
-                mn5 = new Menu5();
-                mn5.FormClosed += Mn5_FormCloased;
-                mn5.MdiParent = this;
-                mn5.Dock = DockStyle.Fill;
-                mn5.Show();
+                mn6 = new Menu6();
+                mn6.FormClosed += Mn6_FormCloased;
+                mn6.MdiParent = this;
+                mn6.Dock = DockStyle.Fill;
+                mn6.Show();
             }
-            else { mn5.Activate(); }
+            else { mn6.Activate(); }
         }
 
-        private void Mn5_FormCloased(object sender, FormClosedEventArgs e)
+        private void Mn6_FormCloased(object sender, FormClosedEventArgs e)
         {
-            mn5 = null;
+            mn6 = null;
+        }
+
+        bool admin1 = true;
+        private void admin_Tick(object sender, EventArgs e)
+        {
+            if (admin1==true)
+            {
+                pnbar.Height += 40;
+                if (pnbar.Height >= 386)
+                {
+                    admin.Stop();
+                    admin1 = false;
+                }
+            }
+            else
+            {
+                pnbar.Height -= 40;
+                if (pnbar.Height <= 66)
+                {
+                    admin.Stop();
+                    admin1 = true;
+                }
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            resetcolor();
+            button6.ForeColor = Color.Blue;
+
+            if (mn3 == null)
+            {
+                mn3 = new Menu3();
+                mn3.FormClosed += Mn3_FormCloased;
+                mn3.MdiParent = this;
+                mn3.Dock = DockStyle.Fill;
+                mn3.Show();
+            }
+            else { mn3.Activate(); }
+        }
+
+
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            resetcolor();
+            button8.ForeColor = Color.Blue;
+
+            if (dm == null)
+            {
+                dm = new danhmuc();
+                dm.FormClosed += Dm_FormClosed;
+                dm.MdiParent = this;
+                dm.Dock = DockStyle.Fill;
+                dm.Show();
+            }
+            else { dm.Activate(); }
+        }
+
+        private void Dm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dm =null;
+        }
+
+
+        private void menubar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            resetcolor();
+            button5.ForeColor = Color.Blue;
+
+            Form1.check = 1;
+            this.Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            resetcolor();
+            button7.ForeColor = Color.Blue;
+
+            if(mn7 == null)
+            {
+                mn7 = new Menu7();
+                mn7.FormClosed += Mn7_FormClosed;
+                mn7.MdiParent = this;
+                mn7.Dock = DockStyle.Fill;
+                mn7.Show();
+            }
+            else {  mn7.Activate(); }
+
+        }
+
+        private void Mn7_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mn7=null;
         }
     }
 }

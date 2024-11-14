@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace quanlynhahang.Classes
 {
@@ -42,6 +43,7 @@ namespace quanlynhahang.Classes
             a dtbase = new a();
 
             DataTable dt = dtbase.readdata("exec dbo.USP_GetTableList");
+            
 
             foreach (DataRow item in dt.Rows) 
             {
@@ -51,5 +53,51 @@ namespace quanlynhahang.Classes
 
             return tableLists;
         }
+
+        public bool inserttable(string name)
+        {
+            try {
+                dtbase.changedata("insert into TableFood (name) values (N'"+name+"')");
+                return true;
+            }
+            catch { 
+            
+                return false;
+            }
+        }
+
+        public bool deletetable(int id) 
+        {
+            try
+            {
+                DataTable dt = dtbase.readdata("select b.id from Bill as b join TableFood as tb on tb.id = b.idTable where tb.id = " + id);
+                int id1 = int.Parse(dt.Rows[0]["id"].ToString());
+
+                dtbase.changedata("delete BillInfo where idBill = " + id1);
+                dtbase.changedata("delete Bill where idTable = "+id);
+                dtbase.changedata("delete TableFood where id = " + id);
+                return true;
+            }
+            catch
+            {
+
+                return false;
+            }
+        }
+
+        public bool edittable(int id,string name, string status)
+        {
+            try
+            {
+                dtbase.changedata("update TableFood set name = N'"+name+"', status = N'"+status+"' where id = "+id);
+                return true;
+            }
+            catch
+            {
+
+                return false;
+            }
+        }
+
     }
 }

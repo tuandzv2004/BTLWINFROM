@@ -49,6 +49,7 @@ namespace quanlynhahang.Classes
             cmd.Dispose();
         }
 
+
         public int login(string username, string password)
         {
             int a;
@@ -63,6 +64,16 @@ namespace quanlynhahang.Classes
             return a;
         }
 
+        public DataSet print(string t)
+        {
+            DataSet dt = new DataSet();
+            openconnection();
+            SqlDataAdapter adapter = new SqlDataAdapter(t, sqlconnec);
+            adapter.Fill(dt);
+            closeconnection();
+            adapter.Dispose();
+            return dt;
+        }
 
     }
 }

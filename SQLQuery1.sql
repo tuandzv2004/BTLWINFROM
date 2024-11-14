@@ -71,13 +71,13 @@ Select * from FoodCategory
 
 select * from Food
 
-create proc USP_InsertBill
+alter proc USP_InsertBill
 @idTable int
 as
 begin
 	INsert dbo.Bill
 	values(
-	GETDATE(),NULL,@idTable,0,0
+	GETDATE(),NULL,@idTable,0,0,0
 	)
 end
 go
@@ -258,8 +258,65 @@ begin
 			update dbo.TableFood set status= N'Trống' where id = @idtable1
 end
 go
-select * from bill
-select * from TableFood
+
+alter table bill add totalPrice float
+
+alter proc USP_getlistbydate
+@checkin date, @checkout date
+as
+begin
+
+select t.name as [Tên Bàn],b.totalPrice as [Tổng Tiền], DateCheckIn as [Ngày Vào],DateCheckOut as [Ngày Ra],discount as [Giảm Giá] from bill as b,TableFood as t 
+where DateCheckIn >=@checkin and DateCheckOut <=@checkout and b.status =1
+and t.id = b.idTable
+end
+go
+select * from Bill
+
+delete Bill
+
 
 exec UTP_chuyenban 3,4
+
+exec USP_getlistbydate '2024-11-10','2024-11-10'
+
+select * from Food
+select * from BillInfo
+
+delete BillInfo
+
+
+alter TRIGGER UTG_DeleteBillInfo
+ON dbo.BillInfo FOR DELETE
+AS
+BEGIN
+DECLARE @idBillInfo INT
+DECLARE @idBill INT
+SELECT @idBillInfo = id, @idBill = Deleted. idBill FROM Deleted
+
+DECLARE @idTable INT
+SELECT @idTable = idTable FROM dbo.Bill WHERE id = @idBill
+
+DECLARE @count INT = 0
+
+SELECT @count = COUNT (*) FROM dbo.BillInfo AS bi, dbo.Bill AS b WHERE b.id = bi.idBill AND b.id = @idBill AND b.status = 0
+
+IF (@count = 0) UPDATE dbo. TableFood SET status = N'Trống' WHERE id = @idTable
+
+END
+GO
+
+SELECT  COUNT (*) FROM dbo.BillInfo AS bi, dbo.Bill AS b WHERE b.id = 38  AND b.status = 0
+select * from TableFood
+select * from Bill
+select * from BillInfo
+
+select * from Account
+
+select * from Bill
+select * from BillInfo
+select * from Food
+select * from TableFood
+
+select f.name , bf.count, f.price, (f.price*bf.count)*(100-b.discount)/100 as tong from BillInfo as bf join Bill as b on bf.idBill=b.id join Food as f on f.id = bf.idFood join TableFood tb on tb.id = b.idTable where  tb.id=7 and b.status =0
 

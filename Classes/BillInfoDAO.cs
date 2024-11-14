@@ -40,5 +40,10 @@ namespace quanlynhahang.Classes
         {
             dtbase.changedata("exec USP_InsertBillInfo " + idBill+","+idFood+","+count);
         }
+        public void deletebillinfobyfood(int id)
+        {
+            dtbase.changedata("delete BillInfo where idFood = " + id);
+        }
+
     }
 }

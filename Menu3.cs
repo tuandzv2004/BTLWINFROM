@@ -23,6 +23,10 @@ namespace quanlynhahang
             LoadlistFood();
             themfood();
             loaddanhmuc();
+
+            dtgfood.Columns["Name"].HeaderText = "Tên Món";
+            dtgfood.Columns["CategoryID"].HeaderText = "ID Danh Mục";
+            dtgfood.Columns["Price"].HeaderText = "Giá";
         }
 
         void LoadlistFood()

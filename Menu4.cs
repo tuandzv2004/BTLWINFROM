@@ -26,6 +26,10 @@ namespace quanlynhahang
             cbbloai.Items.Add("Nhân Viên");
             cbbloai.Items.Add("Quản Lý");
 
+            dtgaccc.Columns["UserName"].HeaderText = "Tên Đăng Nhập";
+            dtgaccc.Columns["Name"].HeaderText = "Tên";
+            dtgaccc.Columns["Type"].HeaderText = "Chức Vụ";
+
         }
 
         void themacc()

@@ -320,3 +320,7 @@ select * from TableFood
 
 select f.name , bf.count, f.price, (f.price*bf.count)*(100-b.discount)/100 as tong from BillInfo as bf join Bill as b on bf.idBill=b.id join Food as f on f.id = bf.idFood join TableFood tb on tb.id = b.idTable where  tb.id=7 and b.status =0
 
+
+select b.id from Bill as b join TableFood as tb on tb.id = b.idTable where tb.id = 1
+
+

@@ -24,6 +24,8 @@ namespace quanlynhahang
             dtgdanhmuc.DataSource = dmuc;
             loaddata();
             loadid();
+
+            dtgdanhmuc.Columns["Name"].HeaderText = "Tên Món";
         }
         void loaddanhmuc()
         {
@@ -33,6 +35,7 @@ namespace quanlynhahang
         void loaddata()
         {
             dmuc.DataSource = CategoryDAO.Instance.GetListCategory();
+            
             loaddanhmuc();
         }
         void loadid()

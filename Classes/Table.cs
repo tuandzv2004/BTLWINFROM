@@ -71,9 +71,12 @@ namespace quanlynhahang.Classes
             try
             {
                 DataTable dt = dtbase.readdata("select b.id from Bill as b join TableFood as tb on tb.id = b.idTable where tb.id = " + id);
-                int id1 = int.Parse(dt.Rows[0]["id"].ToString());
+                for(int i = 0; i<dt.Rows.Count;i++ )
+                {
+                    int id1 = int.Parse(dt.Rows[i]["id"].ToString());
 
-                dtbase.changedata("delete BillInfo where idBill = " + id1);
+                    dtbase.changedata("delete BillInfo where idBill = " + id1);
+                }
                 dtbase.changedata("delete Bill where idTable = "+id);
                 dtbase.changedata("delete TableFood where id = " + id);
                 return true;

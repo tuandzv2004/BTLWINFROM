@@ -29,6 +29,8 @@ namespace quanlynhahang.Classes
 
             DataTable dt = dtbase.readdata(qr);
 
+            
+
             foreach (DataRow dr in dt.Rows) {
                 Category ct = new Category(dr);
                 list.Add(ct);

@@ -138,6 +138,16 @@ namespace quanlynhahang
         {
             fl.DataSource= timfoodbyname(txttimid.Text);
         }
-        
+
+        private void cbbdanhmuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loaddanhmuc();
+        }
+
+        private void cbbdanhmuc_Click(object sender, EventArgs e)
+        {
+
+            loaddanhmuc();
+        }
     }
 }

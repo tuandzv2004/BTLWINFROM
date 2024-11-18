@@ -15,6 +15,7 @@ namespace quanlynhahang
     public partial class Menu5 : Form
     {
         Classes.a dtbase = new Classes.a();
+        public static int discount;
         PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
         public static int id;
         public static float tongsotien;
@@ -49,6 +50,12 @@ namespace quanlynhahang
             DataRow ngay = dt.NewRow();
             ngay[0] = "Ngày: "+ngayHienTai;
             dt.Rows.Add(ngay);
+
+            for(int i = 0; i < dt.Rows.Count - 4; i++)
+            {
+
+                dt.Rows[i]["Giảm Giá"] = discount;
+            }
 
             printPreviewDialog.Document = printDocument1;
             printPreviewDialog.ShowDialog();

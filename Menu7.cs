@@ -19,6 +19,9 @@ namespace quanlynhahang
         {
             InitializeComponent();
             dtgban.DataSource=ba;
+            cbbtrangthai.Items.Add("Trống");
+            cbbtrangthai.Items.Add("Bàn Đặt");
+            cbbtrangthai.Items.Add("Có Người");
             loaddata();
         }
 
@@ -41,6 +44,25 @@ namespace quanlynhahang
             txttenban.DataBindings.Add(new Binding("Text", dtgban.DataSource, "Name", true, DataSourceUpdateMode.Never));
             txttrangthai.DataBindings.Add(new Binding("Text", dtgban.DataSource, "status", true, DataSourceUpdateMode.Never));
             loadban();
+            loadtrangthai();
+        }
+
+        void loadtrangthai()
+        {
+            if(txttrangthai.Text == "Trống")
+            {
+                cbbtrangthai.SelectedIndex = 0;
+            }
+            else if(txttrangthai.Text =="Bàn Đặt")
+            {
+                cbbtrangthai.SelectedIndex = 1;
+
+            }
+            else
+            {
+                cbbtrangthai.SelectedIndex = 2;
+
+            }
 
         }
 
@@ -86,7 +108,7 @@ namespace quanlynhahang
         {
             string name = txttenban.Text;
             int id= int.Parse(txtid.Text);
-            string status= txttrangthai.Text;
+            string status= cbbtrangthai.Text;
             if (Table.Instance.edittable(id,name,status) == true)
             {
                 MessageBox.Show("Cập Nhật Bàn Thành Công.");
@@ -96,6 +118,11 @@ namespace quanlynhahang
             {
                 MessageBox.Show("Có Lỗi Gì Đó.");
             }
+        }
+
+        private void txttrangthai_TextChanged(object sender, EventArgs e)
+        {
+            loadtrangthai();
         }
     }
 }

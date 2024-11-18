@@ -40,8 +40,9 @@
             this.txttentk = new System.Windows.Forms.TextBox();
             this.txttenht = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnreset = new System.Windows.Forms.Button();
             this.txtloaitk = new System.Windows.Forms.TextBox();
+            this.btnreset = new System.Windows.Forms.Button();
+            this.cbbloai = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgaccc)).BeginInit();
             this.panel1.SuspendLayout();
@@ -50,6 +51,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.dtgaccc);
+            this.panel2.Controls.Add(this.txtloaitk);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -158,7 +160,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtloaitk);
+            this.panel1.Controls.Add(this.cbbloai);
             this.panel1.Controls.Add(this.btnreset);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -175,6 +177,16 @@
             this.panel1.Size = new System.Drawing.Size(344, 450);
             this.panel1.TabIndex = 3;
             // 
+            // txtloaitk
+            // 
+            this.txtloaitk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtloaitk.HideSelection = false;
+            this.txtloaitk.Location = new System.Drawing.Point(136, 163);
+            this.txtloaitk.Name = "txtloaitk";
+            this.txtloaitk.Size = new System.Drawing.Size(188, 26);
+            this.txtloaitk.TabIndex = 13;
+            this.txtloaitk.TextChanged += new System.EventHandler(this.txtloaitk_TextChanged);
+            // 
             // btnreset
             // 
             this.btnreset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -186,14 +198,14 @@
             this.btnreset.UseVisualStyleBackColor = true;
             this.btnreset.Click += new System.EventHandler(this.btnreset_Click);
             // 
-            // txtloaitk
+            // cbbloai
             // 
-            this.txtloaitk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtloaitk.Location = new System.Drawing.Point(144, 119);
-            this.txtloaitk.Name = "txtloaitk";
-            this.txtloaitk.Size = new System.Drawing.Size(188, 26);
-            this.txtloaitk.TabIndex = 13;
-            this.txtloaitk.TextChanged += new System.EventHandler(this.txtloaitk_TextChanged);
+            this.cbbloai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbloai.FormattingEnabled = true;
+            this.cbbloai.Location = new System.Drawing.Point(144, 114);
+            this.cbbloai.Name = "cbbloai";
+            this.cbbloai.Size = new System.Drawing.Size(188, 28);
+            this.cbbloai.TabIndex = 14;
             // 
             // Menu4
             // 
@@ -206,6 +218,7 @@
             this.Name = "Menu4";
             this.Text = "Menu4";
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgaccc)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -229,5 +242,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnreset;
         private System.Windows.Forms.TextBox txtloaitk;
+        private System.Windows.Forms.ComboBox cbbloai;
     }
 }

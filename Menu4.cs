@@ -13,6 +13,7 @@ namespace quanlynhahang
 {
     public partial class Menu4 : Form
     {
+        
         public static string us;
         BindingSource al = new BindingSource();
         public Menu4()
@@ -21,6 +22,10 @@ namespace quanlynhahang
             dtgaccc.DataSource = al;
             loadacc();
             themacc();
+
+            cbbloai.Items.Add("Nhân Viên");
+            cbbloai.Items.Add("Quản Lý");
+
         }
 
         void themacc()
@@ -33,6 +38,7 @@ namespace quanlynhahang
         void loadacc()
         {
             al.DataSource = AccountDAO.Instance.layacc();
+            //txtloaitk.Hide();
         }
 
         private void btnxem_Click(object sender, EventArgs e)
@@ -44,11 +50,11 @@ namespace quanlynhahang
         {
             if (txtloaitk.Text == "1")
             {
-                txtloaitk.Text = "Quản Lý";
+                txtloaitk.Text = "Quản Lý"; cbbloai.SelectedIndex = 1;
             }
             if (txtloaitk.Text == "0")
             {
-                txtloaitk.Text = "Nhân Viên";
+                txtloaitk.Text = "Nhân Viên"; cbbloai.SelectedIndex = 0;
             }
         }
 
@@ -99,7 +105,7 @@ namespace quanlynhahang
         {
             string username = txttentk.Text;
             string name = txttenht.Text;
-            string type = txtloaitk.Text;
+            string type = cbbloai.Text;
             int i=-1;
             if(type =="Quản Lý")
             {
@@ -125,7 +131,7 @@ namespace quanlynhahang
         {
             string username = txttentk.Text;
             string name = txttenht.Text;
-            string type = txtloaitk.Text;
+            string type = cbbloai.Text;
             int i = -1;
             if (type == "Quản Lý")
             {

@@ -41,6 +41,7 @@
             this.txttenban = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txttrangthai = new System.Windows.Forms.TextBox();
+            this.cbbtrangthai = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgban)).BeginInit();
             this.panel1.SuspendLayout();
@@ -49,6 +50,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.dtgban);
+            this.panel2.Controls.Add(this.txttrangthai);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -159,7 +161,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txttrangthai);
+            this.panel1.Controls.Add(this.cbbtrangthai);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -178,10 +180,20 @@
             // txttrangthai
             // 
             this.txttrangthai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttrangthai.Location = new System.Drawing.Point(144, 182);
+            this.txttrangthai.Location = new System.Drawing.Point(142, 212);
             this.txttrangthai.Name = "txttrangthai";
             this.txttrangthai.Size = new System.Drawing.Size(188, 26);
             this.txttrangthai.TabIndex = 12;
+            this.txttrangthai.TextChanged += new System.EventHandler(this.txttrangthai_TextChanged);
+            // 
+            // cbbtrangthai
+            // 
+            this.cbbtrangthai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbtrangthai.FormattingEnabled = true;
+            this.cbbtrangthai.Location = new System.Drawing.Point(144, 180);
+            this.cbbtrangthai.Name = "cbbtrangthai";
+            this.cbbtrangthai.Size = new System.Drawing.Size(188, 28);
+            this.cbbtrangthai.TabIndex = 13;
             // 
             // Menu7
             // 
@@ -194,6 +206,7 @@
             this.Name = "Menu7";
             this.Text = "Menu7";
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgban)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -216,5 +229,6 @@
         private System.Windows.Forms.TextBox txttenban;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txttrangthai;
+        private System.Windows.Forms.ComboBox cbbtrangthai;
     }
 }

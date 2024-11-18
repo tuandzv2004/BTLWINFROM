@@ -59,6 +59,9 @@ namespace quanlynhahang
                     case "Trống":
                         btn.BackColor = Color.Green;
                         break;
+                    case "Bàn Đặt":
+                        btn.BackColor = Color.Yellow;
+                        break;
                     default:
                         btn.BackColor = Color.Red;
                         break;
@@ -190,7 +193,7 @@ namespace quanlynhahang
             string tongtienText = txttongtien.Text.Replace("₫", "").Replace(".", "").Trim();
             float tongtien = float.Parse(tongtienText.Split(',')[0]);
             Menu5.tongsotien = tongtien - tongtien * discount / 100;
-
+                Menu5.discount = discount;
 
             Menu5 mn5 = new Menu5();
             mn5.ShowDialog();

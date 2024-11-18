@@ -33,7 +33,7 @@ namespace quanlynhahang
         {
             InitializeComponent();
             this.Login = login;
-            pnbar.Height = 66;
+            pnbar.Height = 62;
         }
         void doiacc(int type)
         {
@@ -61,11 +61,11 @@ namespace quanlynhahang
                 {
                     menu.Stop();
                     menu1 = false;
-                    pn1.Width = menubar.Width;
-                    pn2.Width = menubar.Width;
-                    pn3.Width = menubar.Width;
-                    pn4.Width = menubar.Width;
-                    pn5.Width = menubar.Width;
+                    //pn1.Width = menubar.Width+5;
+                    //pn2.Width = menubar.Width + 5;
+                    //pn3.Width = menubar.Width + 5;
+                    //pn4.Width = menubar.Width + 5;
+                    //pn5.Width = menubar.Width + 5;
                 }
             }
             else
@@ -75,11 +75,11 @@ namespace quanlynhahang
                 {
                     menu.Stop();
                     menu1 = true;
-                    pn1.Width = menubar.Width;
-                    pn2.Width = menubar.Width;
-                    pn3.Width = menubar.Width;
-                    pn4.Width = menubar.Width;
-                    pn5.Width = menubar.Width;
+                    pn1.Width = menubar.Width + 1;
+                    pn2.Width = menubar.Width + 1;
+                    pn3.Width = menubar.Width + 1;
+                    pn4.Width = menubar.Width + 1;
+                    pn5.Width = menubar.Width + 1;
                 }
             }
         }
@@ -177,7 +177,7 @@ namespace quanlynhahang
             if (admin1==true)
             {
                 pnbar.Height += 40;
-                if (pnbar.Height >= 386)
+                if (pnbar.Height >= 392)
                 {
                     admin.Stop();
                     admin1 = false;
@@ -186,7 +186,7 @@ namespace quanlynhahang
             else
             {
                 pnbar.Height -= 40;
-                if (pnbar.Height <= 66)
+                if (pnbar.Height <= 62)
                 {
                     admin.Stop();
                     admin1 = true;

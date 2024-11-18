@@ -198,11 +198,11 @@
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(-4, -13);
+            this.button2.Location = new System.Drawing.Point(-18, -18);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(222, 81);
             this.button2.TabIndex = 2;
-            this.button2.Text = "              Admin";
+            this.button2.Text = "                 Admin";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -225,7 +225,7 @@
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.Location = new System.Drawing.Point(-4, -9);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(222, 81);
+            this.button6.Size = new System.Drawing.Size(236, 81);
             this.button6.TabIndex = 2;
             this.button6.Text = "              Thức Ăn";
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

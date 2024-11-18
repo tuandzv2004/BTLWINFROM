@@ -91,6 +91,8 @@
             this.cbbdanhmuc.Name = "cbbdanhmuc";
             this.cbbdanhmuc.Size = new System.Drawing.Size(188, 28);
             this.cbbdanhmuc.TabIndex = 13;
+            this.cbbdanhmuc.SelectedIndexChanged += new System.EventHandler(this.cbbdanhmuc_SelectedIndexChanged);
+            this.cbbdanhmuc.Click += new System.EventHandler(this.cbbdanhmuc_Click);
             // 
             // label4
             // 

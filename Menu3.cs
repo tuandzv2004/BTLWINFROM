@@ -145,7 +145,7 @@ namespace quanlynhahang
 
         private void cbbdanhmuc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loaddanhmuc();
+            //loaddanhmuc();
         }
 
         private void cbbdanhmuc_Click(object sender, EventArgs e)
